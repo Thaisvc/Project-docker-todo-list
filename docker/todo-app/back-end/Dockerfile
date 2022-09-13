@@ -1,15 +1,9 @@
-FROM node:14.5.0-alpine
+FROM node:14
 
-WORKDIR /todo-app
+WORKDIR /todo-app/back-end
 
-ADD node_modules.tar.gz /todo-app/back-end
+ADD node_modules.tar.gz  ./todo-app/back-end
 
-ADD ./src /todo-app/back-end
-
-COPY package-lock.json /todo-app/back-end
-
-COPY package.json /todo-app/back-end
+COPY ./src ./todo-app/back-end/src
 
 EXPOSE 3001
-
-CMD npm start
